@@ -360,9 +360,31 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
       </label>
     </div>
 
-    <a id="paymentButton" href="/up1/checkout" class="btn33" onclick="handleButtonClick(event)" data-enabled="false">Pagar Imposto</a>
+    <a id="paymentButton" href="#" class="btn33" onclick="redirectWithParams('../checkout?up=1');" data-enabled="false">Pagar Imposto</a>
   </div>
 </div>
+
+<script>
+	function getUrlParams() {
+		const params = new URLSearchParams(window.location.search);
+		let paramsObject = {};
+		params.forEach((value, key) => {
+			paramsObject[key] = value;
+		});
+		return paramsObject;
+	}
+
+	function redirectWithParams(baseUrl) {
+		const params = getUrlParams();
+		const url = new URL(baseUrl, window.location);
+
+		Object.keys(params).forEach(key => {
+			url.searchParams.set(key, params[key]);
+		});
+
+		window.location.href = url.toString();
+	}
+</script>
 
 <script>
     let prefix = ["/up1/checkout"];

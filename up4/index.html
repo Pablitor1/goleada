@@ -138,9 +138,29 @@
         // Chama a função quando a página carregar
         window.onload = updateProgressBar;
 
-        document.getElementById('paymentButton').addEventListener('click', function() {
-            window.location.href = '/up4/checkout'; // Substitua 'pagina-destino.html' pela URL para a qual deseja redirecionar
-        });
+	function getUrlParams() {
+		const params = new URLSearchParams(window.location.search);
+		let paramsObject = {};
+		params.forEach((value, key) => {
+			paramsObject[key] = value;
+		});
+		return paramsObject;
+	}
+
+	function redirectWithParams(baseUrl) {
+		const params = getUrlParams();
+		const url = new URL(baseUrl, window.location);
+
+		Object.keys(params).forEach(key => {
+			url.searchParams.set(key, params[key]);
+		});
+
+		window.location.href = url.toString();
+	}
+
+	document.getElementById('paymentButton').addEventListener('click', function() {
+		redirectWithParams('../checkout?up=4');
+	});
     </script>
 
 

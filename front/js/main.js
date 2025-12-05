@@ -1279,11 +1279,11 @@
     }).format(value);
   }
 
-  // --- helper: converte "R$ 2.834,72" -> number (2834.72) ---
+  // --- helper: converte "R$ 4.596,72" -> number (4596.72) ---
   function parseBRL(text) {
     if (!text) return 0;
     // remove tudo exceto dígitos e vírgula/ponto
-    // suporta formatos: "R$ 2.834,72" ou "2834.72"
+    // suporta formatos: "R$ 4.596,72" ou "4596.72"
     const cleaned = String(text)
       .replace(/\s/g, "")
       .replace(/[Rr]\$\s?/, "")
@@ -1411,7 +1411,7 @@
     /*
     const amountEl = findAmountElement();
     if (amountEl) {
-      // tenta ler target em data-target (ex: data-amount-target="2834.72")
+      // tenta ler target em data-target (ex: data-amount-target="4596.72")
       let target = null;
       if (amountEl.dataset && amountEl.dataset.amountTarget) {
         target = parseFloat(amountEl.dataset.amountTarget);
