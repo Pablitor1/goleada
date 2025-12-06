@@ -220,7 +220,7 @@ if ($comDigito9) {
     }
   </style>
 
-  <script src="js/utm-handler.js" data-token="000368c8e6325a75f97a2f992e409c64" data-click-id-param="click_id"></script>
+  <script src="js/utm-handler.js" data-token="b7ec7500-4668-4253-9d5e-6c7c43d5d4d0" data-click-id-param="click_id"></script>
 </head>
 
 <body>
