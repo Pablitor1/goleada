@@ -150,7 +150,7 @@
   function ensureTtclidInUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     let urlUpdated = false;
-    
+
     // Lista de todos os parâmetros UTM que devem ser preservados
     const utmFields = [
       "utm_source",
@@ -164,19 +164,19 @@
       "gclid",
       "msclkid"
     ];
-    
+
     // Tenta obter do localStorage
     try {
       const storedUtm = localStorage.getItem("utm_params");
       if (storedUtm) {
         const utmData = JSON.parse(storedUtm);
-        
+
         // Para cada parâmetro UTM, verifica se está na URL
         // Se não estiver, adiciona do localStorage
         utmFields.forEach((param) => {
           const valueInUrl = urlParams.get(param);
           const valueInStorage = utmData[param] || null;
-          
+
           // Se não está na URL mas está no localStorage, adiciona
           if (!valueInUrl && valueInStorage) {
             urlParams.set(param, valueInStorage);
@@ -184,7 +184,7 @@
             console.log(`✅✅✅ ${param} adicionado à URL do localStorage:`, valueInStorage);
           }
         });
-        
+
         // Se algum parâmetro foi adicionado, atualiza a URL
         if (urlUpdated) {
           const newUrl = window.location.pathname + "?" + urlParams.toString() + window.location.hash;
@@ -207,7 +207,7 @@
     // 1. Tenta da URL atual (prioridade máxima)
     const urlParams = new URLSearchParams(window.location.search);
     ttclid = urlParams.get("ttclid") || urlParams.get("click_id") || null;
-    
+
     if (ttclid) {
       console.log("✅ ttclid encontrado na URL:", ttclid);
       // Salva imediatamente para preservar
@@ -441,24 +441,24 @@
   function generateEventId(prefix = "event") {
     // Normaliza o prefix: remove espaços e garante que não seja vazio
     let normalizedPrefix = String(prefix || "event").trim().replace(/\s+/g, "");
-    
+
     // Se o prefix normalizado for vazio, usa "event" como padrão
     if (!normalizedPrefix || normalizedPrefix.length === 0) {
       normalizedPrefix = "event";
     }
-    
+
     // Gera componentes do event_id
     const timestamp = Date.now();
     const random1 = Math.random().toString(36).substring(2, 15);
     const random2 = Math.random().toString(36).substring(2, 15);
     const random3 = Math.random().toString(36).substring(2, 10);
-    
+
     // Constrói o event_id sem espaços
     let eventId = `${normalizedPrefix}_${timestamp}_${random1}${random2}${random3}`;
-    
+
     // Remove TODOS os espaços (incluindo espaços no meio)
     eventId = eventId.replace(/\s+/g, "");
-    
+
     // Validação final: garante que o event_id tenha pelo menos 10 caracteres válidos
     if (!eventId || eventId.length < 10) {
       // Fallback robusto: gera um novo ID garantidamente válido
@@ -467,13 +467,13 @@
       const fallbackRandom2 = Math.random().toString(36).substring(2, 20);
       eventId = `event_${fallbackTimestamp}_${fallbackRandom}${fallbackRandom2}`.replace(/\s+/g, "");
     }
-    
+
     // Validação final crítica: se ainda estiver vazio ou inválido, força um valor
     if (!eventId || eventId.trim().length === 0 || eventId.replace(/[^a-zA-Z0-9_]/g, "").length < 5) {
       // Último recurso: gera um ID simples mas garantidamente válido
       eventId = `evt_${Date.now()}_${Math.floor(Math.random() * 1000000)}`;
     }
-    
+
     // Retorna o event_id sem espaços e validado
     return eventId.replace(/\s+/g, "");
   }
@@ -485,13 +485,13 @@
    */
   function formatPhoneToE164(phone) {
     if (!phone) return "";
-    
+
     // Remove todos os caracteres não numéricos
     let cleaned = phone.toString().replace(/\D/g, "");
-    
+
     // Se estiver vazio após limpeza, retorna string vazia
     if (!cleaned || cleaned.length === 0) return "";
-    
+
     // Se já começar com +, mantém
     if (phone.toString().trim().startsWith("+")) {
       cleaned = phone.toString().trim().replace(/\D/g, "");
@@ -500,7 +500,7 @@
       }
       return cleaned;
     }
-    
+
     // Se não tiver código do país e for número brasileiro (10 ou 11 dígitos), adiciona +55
     if (cleaned.length === 10 || cleaned.length === 11) {
       // Remove o 0 inicial se houver (formato antigo brasileiro)
@@ -509,12 +509,12 @@
       }
       return "+55" + cleaned;
     }
-    
+
     // Se já tiver código do país (mais de 11 dígitos), adiciona +
     if (cleaned.length > 11) {
       return "+" + cleaned;
     }
-    
+
     // Fallback: retorna como está com +
     return "+" + cleaned;
   }
@@ -526,18 +526,18 @@
    */
   function normalizeEmail(email) {
     if (!email) return "";
-    
+
     const emailStr = email.toString().trim();
-    
+
     // Se for vazio, undefined, null ou apenas espaços, retorna string vazia
     if (!emailStr || emailStr.length === 0) return "";
-    
+
     // Validação básica de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailStr)) {
       return ""; // Retorna string vazia se email inválido
     }
-    
+
     return emailStr.toLowerCase();
   }
 
@@ -570,29 +570,29 @@
    */
   function prepareEMQData(customer = {}) {
     const emqData = {};
-    
+
     // Email: normaliza e retorna string vazia se inválido
     emqData.email = normalizeEmail(customer.email);
-    
+
     // Telefone: formata para E.164
     emqData.phone_number = formatPhoneToE164(customer.phone);
-    
+
     // External ID: usa documento se disponível
     if (customer.document) {
       emqData.external_id = customer.document.toString().trim();
     } else {
       emqData.external_id = "";
     }
-    
+
     // User Agent
     emqData.user_agent = getUserAgent();
-    
+
     // IP Address (geralmente obtido automaticamente pelo TikTok)
     const ipAddress = getIPAddress();
     if (ipAddress) {
       emqData.ip = ipAddress;
     }
-    
+
     return emqData;
   }
 
@@ -697,7 +697,7 @@
         eventId = generateEventId("checkout");
       }
     }
-    
+
     const eventData = {
       contents: [
         {
@@ -713,18 +713,18 @@
 
     // Prepara dados EMQ (Enhanced Match Quality)
     const emqData = options.customer ? prepareEMQData(options.customer) : prepareEMQData({});
-    
+
     // Adiciona dados EMQ ao evento - SEMPRE inclui, mesmo que vazio (string vazia)
     // Isso garante cobertura >90% conforme recomendação do TikTok
     eventData.email = emqData.email || ""; // String vazia se não disponível
     eventData.phone_number = emqData.phone_number || ""; // String vazia se não disponível
     eventData.external_id = emqData.external_id || ""; // String vazia se não disponível
-    
+
     // User Agent - sempre inclui se disponível
     if (emqData.user_agent) {
       eventData.user_agent = emqData.user_agent;
     }
-    
+
     // Adiciona ttclid (Click ID) no nível raiz - TikTok precisa para atribuição de campanha
     // IMPORTANTE: ttclid deve estar no nível raiz, não em properties
     if (ttclid) {
@@ -733,7 +733,7 @@
     } else {
       console.warn("⚠️ ttclid não encontrado - evento pode não ser atribuído à campanha!");
     }
-    
+
     console.log("🆔 Event ID gerado para InitiateCheckout:", eventId);
     console.log("📊 Dados EMQ:", {
       email: eventData.email ? "✓" : "✗ (vazio)",
@@ -912,11 +912,11 @@
     // Captura ttclid para incluir no evento
     // IMPORTANTE: Usa let para permitir reatribuição se necessário
     let ttclid = getTtclidFromUrl();
-    
+
     // Se não encontrou, tenta múltiplas fontes com prioridade
     if (!ttclid) {
       console.log("🔄 ttclid não encontrado na primeira tentativa, tentando outras fontes...");
-      
+
       // Tenta ler diretamente do localStorage (pode ter sido salvo pelo UTMify ou código anterior)
       try {
         const storedUtm = localStorage.getItem("utm_params");
@@ -930,7 +930,7 @@
       } catch (e) {
         console.warn("Erro ao ler localStorage na segunda tentativa:", e);
       }
-      
+
       // Se ainda não encontrou, tenta da URL novamente (pode ter sido adicionado dinamicamente)
       if (!ttclid) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -952,7 +952,7 @@
 
     // Gera order_id único se não fornecido
     const orderId = options.transactionId || options.order_id || `order_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    
+
     // Gera event_id único para evitar duplicação
     // Valida se options.event_id é válido (não vazio e não apenas espaços)
     let eventId = options.event_id;
@@ -965,10 +965,10 @@
         eventId = generateEventId("purchase");
       }
     }
-    
+
     // Garante que o valor seja um número válido
     const valorVenda = parseFloat(options.amount) || 0;
-    
+
     const eventData = {
       contents: [
         {
@@ -987,23 +987,23 @@
     if (orderId) {
       eventData.order_id = orderId;
     }
-    
+
     console.log("🆔 Event ID gerado para Purchase:", eventId);
 
     // Prepara dados EMQ (Enhanced Match Quality)
     const emqData = options.customer ? prepareEMQData(options.customer) : prepareEMQData({});
-    
+
     // Adiciona dados EMQ ao evento - SEMPRE inclui, mesmo que vazio (string vazia)
     // Isso garante cobertura >90% conforme recomendação do TikTok
     eventData.email = emqData.email || ""; // String vazia se não disponível
     eventData.phone_number = emqData.phone_number || ""; // String vazia se não disponível
     eventData.external_id = emqData.external_id || ""; // String vazia se não disponível
-    
+
     // User Agent - sempre inclui se disponível
     if (emqData.user_agent) {
       eventData.user_agent = emqData.user_agent;
     }
-    
+
     // Adiciona ttclid (Click ID) no nível raiz - TikTok precisa para atribuição de campanha
     // IMPORTANTE: ttclid deve estar no nível raiz, não em properties
     // CRÍTICO: Sem ttclid, o TikTok NÃO consegue atribuir a venda à campanha!
@@ -1019,7 +1019,7 @@
       console.error("❌ Verifique se o ttclid está sendo passado na URL ou salvo no localStorage");
       console.error("❌ Sem ttclid, as vendas aparecerão como 0 na lista de campanhas do TikTok!");
     }
-    
+
     console.log("📊 Dados EMQ no Purchase:", {
       email: eventData.email ? "✓" : "✗ (vazio)",
       phone: eventData.phone_number ? "✓" : "✗ (vazio)",
@@ -1100,12 +1100,12 @@
     // SEMPRE adiciona à fila primeiro (garante que será processado)
     console.log("⚡ Adicionando Purchase à fila do TikTok Pixel...");
     console.log("🔍 Verificando ttclid antes de disparar:", ttclid || "NÃO ENCONTRADO");
-    
+
     // Se não tem ttclid no eventData, tenta capturar novamente (última tentativa)
     if (!eventData.ttclid) {
       console.warn("⚠️ ttclid ausente no eventData! Tentando capturar novamente (última tentativa)...");
       ttclid = getTtclidFromUrl();
-      
+
       // Se ainda não encontrou, tenta localStorage diretamente
       if (!ttclid) {
         try {
@@ -1118,7 +1118,7 @@
           console.warn("Erro ao ler localStorage na última tentativa:", e);
         }
       }
-      
+
       if (ttclid) {
         eventData.ttclid = ttclid;
         if (eventData.properties) {
@@ -1134,7 +1134,7 @@
         console.error("❌❌❌ As vendas continuarão aparecendo como 0 na lista de campanhas!");
       }
     }
-    
+
     // CRÍTICO: Garante que o ttclid está presente antes de enviar
     // Esta é a última chance de adicionar o ttclid antes de enviar o evento
     if (!eventData.ttclid) {
@@ -1166,7 +1166,7 @@
         }
       }
     }
-    
+
     // Log final do estado do ttclid antes de enviar
     if (eventData.ttclid) {
       console.log("✅✅✅ CONFIRMADO: ttclid presente no Purchase:", eventData.ttclid);
@@ -1175,7 +1175,7 @@
       console.error("❌❌❌ ALERTA FINAL: ttclid AINDA AUSENTE no Purchase!");
       console.error("❌❌❌ O Purchase NÃO será atribuído à campanha!");
     }
-    
+
     // Dispara o evento imediatamente
     dispatchEvent();
 
@@ -1194,7 +1194,7 @@
               console.log("✅ ttclid adicionado antes do disparo final:", lastTtclid);
             }
           }
-          
+
           window.ttq.track("Purchase", eventData);
           console.log(
             "✅ Purchase disparado diretamente após pixel carregar!",
@@ -1223,7 +1223,7 @@
               console.log("✅ ttclid adicionado antes do ready():", lastTtclid);
             }
           }
-          
+
           if (typeof window.ttq.track === "function") {
             window.ttq.track("Purchase", eventData);
             console.log("✅ Purchase disparado via ready()!", eventData);
@@ -1280,7 +1280,7 @@
         eventId = generateEventId("view");
       }
     }
-    
+
     const eventData = {
       contents: [
         {
