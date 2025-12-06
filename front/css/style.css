@@ -6,13 +6,11 @@ body {
   justify-content: center;
   user-select: none;
 }
-
 html,
 body {
   overflow-x: hidden;
   overscroll-behavior-y: none;
 }
-
 * {
   -webkit-touch-callout: none;
 }
@@ -20,8 +18,7 @@ body {
 a[href^="tel"] {
   color: inherit !important;
   text-decoration: none !important;
-  pointer-events: none;
-  /* impede o click */
+  pointer-events: none; /* impede o click */
 }
 
 /* Remove estilização de link automático em números de telefone */
@@ -42,7 +39,6 @@ a[x-apple-data-detectors] {
 .screen {
   display: none;
 }
-
 .screen.is-active {
   display: block;
 }
@@ -54,15 +50,13 @@ a[x-apple-data-detectors] {
 
 button {
   border: 0;
-  box-shadow: none;
-  /* Remove qualquer sombra */
+  box-shadow: none; /* Remove qualquer sombra */
 }
 
 /* Remove o contorno azul/preto que aparece ao clicar */
 button:focus {
   outline: none;
 }
-
 /* .screen {
   border-bottom: 4px solid #ddd;
   padding: 40px 20px;
@@ -80,20 +74,16 @@ button:focus {
   align-items: center;
   justify-content: center;
 }
-
 #screens {
   width: 100%;
 }
-
 #one {
   background-color: #f5f5f5;
-  padding-bottom: 110px;
-  /* Espaço para o sticky popup não cobrir o conteúdo */
+  padding-bottom: 110px; /* Espaço para o sticky popup não cobrir o conteúdo */
   padding-left: 12px;
   padding-right: 12px;
   box-sizing: border-box;
 }
-
 /* ===========================
    Card do saldo (container)
    =========================== */
@@ -112,10 +102,8 @@ button:focus {
 /* Flex wrapper que organiza esquerda (info) e direita (ação) */
 .container-saldo {
   display: flex;
-  align-items: flex-end;
-  /* centraliza verticalmente */
-  justify-content: space-between;
-  /* empurra o botão para a direita */
+  align-items: flex-end; /* centraliza verticalmente */
+  justify-content: space-between; /* empurra o botão para a direita */
   gap: 16px;
 }
 
@@ -124,8 +112,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  min-width: 0;
-  /* evita overflow do texto em flex */
+  min-width: 0; /* evita overflow do texto em flex */
 }
 
 /* linha com "Seu saldo" e ícone */
@@ -139,15 +126,15 @@ button:focus {
 }
 
 /* ícone pequeno ao lado do label */
-.p-saldo {}
+.p-saldo {
+}
 
 /* valor principal: melhor controle tipográfico */
 .saldo-valor {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  padding: 0;
-  /* removido padding vertical para centralizar */
+  padding: 0; /* removido padding vertical para centralizar */
 }
 
 /* se quiser separar inteiro e decimal (opcional no HTML atual) */
@@ -180,7 +167,6 @@ button:focus {
   border: 0;
   position: relative;
 }
-
 .btn-text {
   color: #fff;
   font-size: 14px;
@@ -188,7 +174,6 @@ button:focus {
   font-weight: 500;
   line-height: normal;
 }
-
 .saldo-text {
   color: #000;
   font-size: 14px;
@@ -196,10 +181,8 @@ button:focus {
   font-weight: 500;
   line-height: normal;
   display: flex;
-  align-items: center;
-  /* vertical centralization */
+  align-items: center; /* vertical centralization */
 }
-
 .p-bg {
   display: inline-flex;
   width: 13px;
@@ -212,7 +195,6 @@ button:focus {
   border-bottom: 0.371px solid #faa21c;
   background: #fedc60;
 }
-
 .p-txt {
   color: #ffe56a;
   text-shadow: 0 0 1.114px rgba(0, 0, 0, 0.25);
@@ -222,7 +204,6 @@ button:focus {
   line-height: normal;
   z-index: 10;
 }
-
 .valor-currency {
   color: #000;
   font-family: Inter;
@@ -231,13 +212,11 @@ button:focus {
   font-weight: 700;
   line-height: normal;
 }
-
 .pix-badge {
   position: absolute;
   top: -8px;
   right: -3px;
 }
-
 .pix-badge img {
   width: 31px;
   height: 11px;
@@ -245,7 +224,6 @@ button:focus {
   border-radius: 6px 6px 6px 0;
   background: #edf2f1;
 }
-
 .parabens {
   display: flex;
   box-sizing: border-box;
@@ -262,7 +240,6 @@ button:focus {
   display: block;
   width: 100%;
 }
-
 .parabens-txtum,
 .parabens-txtdois {
   color: #000;
@@ -271,7 +248,6 @@ button:focus {
   font-weight: 700;
   line-height: normal;
 }
-
 .parabens-valor {
   color: #fe2b54;
   font-size: 22px;
@@ -280,7 +256,6 @@ button:focus {
   line-height: normal;
   display: block;
 }
-
 .bloco-dois {
   display: flex;
   flex-direction: column;
@@ -297,22 +272,17 @@ button:focus {
 .nobreak {
   white-space: nowrap;
 }
-
 .line {
   width: 100%;
-  height: 1px;
-  /* controla a espessura */
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-  /* cor bem suave */
+  height: 1px; /* controla a espessura */
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* cor bem suave */
   /* margin: 20px 0; */
 }
-
 .entre {
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
 }
-
 .entre-txt {
   width: 244px;
   color: #000;
@@ -323,7 +293,6 @@ button:focus {
   flex: 1 1 0;
   min-width: 0;
 }
-
 .entre-pts {
   display: block;
   color: #fe2b54;
@@ -336,7 +305,6 @@ button:focus {
   font-weight: 500;
   line-height: normal;
 }
-
 .btn-concluido {
   width: 89px;
   height: 35px;
@@ -345,10 +313,8 @@ button:focus {
   background: #f1f1f3;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
-  /* Torna o botão não clicável */
+  pointer-events: none; /* Torna o botão não clicável */
 }
-
 .entre-data {
   display: block;
   color: #ce425f;
@@ -358,7 +324,6 @@ button:focus {
   line-height: normal;
   margin-top: 6px;
 }
-
 .concluiu {
   height: 26px;
   border-radius: 6px;
@@ -367,7 +332,6 @@ button:focus {
   gap: 10px;
   margin-top: 12px;
 }
-
 .concluiu-txt {
   width: 288px;
   color: #848486;
@@ -377,7 +341,6 @@ button:focus {
   line-height: 14px;
   padding: 6px 12px;
 }
-
 /* day tracker */
 /* Reset básico para garantir que o padding não estoure o tamanho */
 .dia,
@@ -385,11 +348,9 @@ button:focus {
   margin-top: 20px;
   text-align: center;
 }
-
 .day-tracker * {
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-  /* Certifique-se de ter a fonte Inter importada */
+  font-family: "Inter", sans-serif; /* Certifique-se de ter a fonte Inter importada */
 }
 
 /* Container Principal */
@@ -440,8 +401,7 @@ button:focus {
   position: relative;
   background: #fedc60;
   overflow: hidden;
-  border-radius: 50%;
-  /* 228.34px no original arredondado para 50% */
+  border-radius: 50%; /* 228.34px no original arredondado para 50% */
   border-bottom: 0.46px solid #faa21c;
 }
 
@@ -485,7 +445,7 @@ button:focus {
 .day-tracker__value {
   align-self: stretch;
   text-align: center;
-  color: #ea445a;
+  color: black;
   font-size: 11px;
   font-weight: 600;
 }
@@ -493,8 +453,7 @@ button:focus {
 /* Overlay (Camada rosa por cima) */
 .day-tracker__overlay {
   width: 45px;
-  height: 45px;
-  /* Forçado altura para cobrir o box */
+  height: 45px; /* Forçado altura para cobrir o box */
   padding: 13px;
   position: absolute;
   left: 0px;
@@ -533,15 +492,12 @@ button:focus {
   font-size: 10px;
   font-weight: 600;
 }
-
 .entre-txt-dois {
   padding-right: 18px;
 }
-
 .entre-txt-dois .entre-pts {
   display: inline;
 }
-
 .assista {
   margin-left: 6px;
   width: 118px;
@@ -551,23 +507,17 @@ button:focus {
   background: #f1f1f1;
   justify-content: center;
   align-items: center;
-  position: relative;
-  /* Cria o contexto de posicionamento */
-  overflow: visible;
-  /* Garante que o SVG possa sair para fora da caixa */
+  position: relative; /* Cria o contexto de posicionamento */
+  overflow: visible; /* Garante que o SVG possa sair para fora da caixa */
 }
-
 .assista-tail {
   position: absolute;
-  left: 25px;
-  /* A distância que você pediu */
-  top: 100%;
-  /* Cola exatamente na borda de baixo */
+  left: 25px; /* A distância que você pediu */
+  top: 100%; /* Cola exatamente na borda de baixo */
 
   /* Dica Pro: Sobe 1 pixel para evitar uma linha branca fina entre o balão e o bico */
   margin-top: -1px;
 }
-
 /* .assista::after {
   content: "";
   position: absolute;
@@ -587,20 +537,15 @@ button:focus {
   line-height: normal;
   text-align: center;
 }
-
 /* Container Principal */
 .progress-bar {
-  position: relative;
-  /* Necessário para a linha absoluta funcionar */
+  position: relative; /* Necessário para a linha absoluta funcionar */
   display: flex;
-  justify-content: space-between;
-  /* Espalha os itens igualmente */
+  justify-content: space-between; /* Espalha os itens igualmente */
   align-items: flex-start;
   width: 100%;
-  margin-top: 11px;
-  /* Espaçamento superior */
-  padding: 0 10px;
-  /* Um respiro nas laterais */
+  margin-top: 11px; /* Espaçamento superior */
+  padding: 0 10px; /* Um respiro nas laterais */
   box-sizing: border-box;
 }
 
@@ -608,40 +553,31 @@ button:focus {
 .progress-bar::before {
   content: "";
   position: absolute;
-  top: 12px;
-  /* Ajuste vertical: metade da altura do ícone (ex: 24px / 2) */
+  top: 12px; /* Ajuste vertical: metade da altura do ícone (ex: 24px / 2) */
   left: 0;
   right: 0;
-  height: 5px;
-  /* Espessura da linha */
-  background-color: #f1f1f1;
-  /* Cor da linha */
+  height: 5px; /* Espessura da linha */
+  background-color: #f1f1f1; /* Cor da linha */
   border-radius: 10px;
-  z-index: 0;
-  /* Fica atrás das moedas */
+  z-index: 0; /* Fica atrás das moedas */
 }
 
 /* Cada bloco (Ícone + Texto) */
 .progress-step {
   position: relative;
-  z-index: 1;
-  /* Garante que fique SOBRE a linha */
+  z-index: 1; /* Garante que fique SOBRE a linha */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  /* Distância entre a moeda e o texto */
+  gap: 8px; /* Distância entre a moeda e o texto */
 }
 
 /* Wrapper do Ícone (Moeda) */
 .step-icon {
-  width: 24px;
-  /* Ajuste o tamanho conforme seu SVG real */
+  width: 24px; /* Ajuste o tamanho conforme seu SVG real */
   height: 24px;
-  background-color: #fff;
-  /* IMPORTANTE: Esconde a linha atrás da moeda */
-  border-radius: 50%;
-  /* Garante que o fundo branco seja redondo */
+  background-color: #fff; /* IMPORTANTE: Esconde a linha atrás da moeda */
+  border-radius: 50%; /* Garante que o fundo branco seja redondo */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -663,38 +599,29 @@ button:focus {
   line-height: normal;
   text-align: center;
 }
-
 .hide {
   visibility: hidden;
 }
-
 .posicao-direita {
-  align-self: flex-end;
-  /* Para flex-direction: column */
-  margin-left: auto;
-  /* Para flex-direction: row */
+  align-self: flex-end; /* Para flex-direction: column */
+  margin-left: auto; /* Para flex-direction: row */
 }
 
 /* Opcional: Faz a setinha (tail) ficar na direita também */
 .posicao-direita .assista-tail {
-  left: auto;
-  /* Desliga o posicionamento esquerdo */
+  left: auto; /* Desliga o posicionamento esquerdo */
 }
-
 .assista {
   display: flex;
 }
-
 .taildois {
   position: absolute;
   right: 39px;
-  top: 100%;
-  /* Cola exatamente na borda de baixo */
+  top: 100%; /* Cola exatamente na borda de baixo */
 
   /* Dica Pro: Sobe 1 pixel para evitar uma linha branca fina entre o balão e o bico */
   margin-top: -1px;
 }
-
 .obtem-txt {
   margin-top: 20px;
   margin-left: 9px;
@@ -706,7 +633,6 @@ button:focus {
   font-weight: 500;
   line-height: 14px;
 }
-
 .popup {
   padding: 20px;
   text-align: center;
@@ -723,7 +649,6 @@ button:focus {
   justify-content: flex-start;
   align-items: center;
 }
-
 .gol {
   color: #000;
   font-size: 20px;
@@ -733,7 +658,6 @@ button:focus {
   padding-top: 5px;
   display: block;
 }
-
 .gol-img {
   width: 129px;
   height: 95px;
@@ -742,7 +666,6 @@ button:focus {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .gol-txt {
   padding-top: 12px;
   width: 270px;
@@ -754,7 +677,6 @@ button:focus {
   line-height: normal;
   text-align: center;
 }
-
 .gol-valor {
   display: inline-flex;
   padding-top: 20px;
@@ -765,7 +687,6 @@ button:focus {
   font-weight: 700;
   line-height: normal;
 }
-
 .timer-wrapper {
   margin-top: 0;
   display: flex;
@@ -773,17 +694,12 @@ button:focus {
   justify-content: center;
   gap: 8px;
 }
-
 .timer-clock {
   gap: 4px;
-  display: flex;
-  /* 1. Transforma em um container flexível */
-  align-items: center;
-  /* 2. Alinha todos os filhos (caixas E separadores) verticalmente */
-  justify-content: center;
-  /* 3. Alinha horizontalmente no centro */
+  display: flex; /* 1. Transforma em um container flexível */
+  align-items: center; /* 2. Alinha todos os filhos (caixas E separadores) verticalmente */
+  justify-content: center; /* 3. Alinha horizontalmente no centro */
 }
-
 .timer-box {
   display: flex;
   padding: 4px;
@@ -793,7 +709,6 @@ button:focus {
   align-items: center;
   font-size: 10px;
 }
-
 .timer-label {
   color: #403f3a;
   font-size: 10px;
@@ -812,18 +727,15 @@ button:focus {
   background: #fe2b54;
   border: 0;
   display: flex;
-  margin: 12px auto 0 auto;
-  /* adiciona espaçamento acima e centraliza */
+  margin: 12px auto 0 auto; /* adiciona espaçamento acima e centraliza */
   cursor: pointer;
 }
 
 /* Botão dentro do popup deve respeitar o padding-bottom */
-.popup>.btn-obrigado {
+.popup > .btn-obrigado {
   margin-bottom: 0;
-  margin-top: auto;
-  /* empurra para baixo se necessário */
+  margin-top: auto; /* empurra para baixo se necessário */
 }
-
 .saldo-dois {
   width: 100%;
   height: 130px;
@@ -834,7 +746,6 @@ button:focus {
   background: #000;
   box-sizing: border-box;
 }
-
 .saldo-text-dois {
   color: #fff;
   font-size: 17px;
@@ -842,7 +753,6 @@ button:focus {
   font-weight: 500;
   line-height: normal;
 }
-
 .valor-currency-dois {
   color: #fff;
   font-size: 30px;
@@ -850,7 +760,6 @@ button:focus {
   font-weight: 700;
   line-height: normal;
 }
-
 .total-pontos {
   color: #828282;
   font-size: 14px;
@@ -858,17 +767,14 @@ button:focus {
   font-weight: 500;
   line-height: normal;
 }
-
 .saldo-valor-dois {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 .saldo-info-dois {
   gap: 8px;
 }
-
 .saldo-tres {
   display: flex;
   width: 100%;
@@ -881,7 +787,6 @@ button:focus {
   gap: 10px;
   box-sizing: border-box;
 }
-
 .total-pontos-dois {
   color: #828282;
   font-family: Inter;
@@ -898,12 +803,13 @@ button:focus {
   padding-bottom: 12px;
   box-sizing: border-box;
 }
-
 .saldo-dois {
   --display: flex;
   --min-height: 117px;
   --flex-direction: row;
-  --container-widget-width: calc((1 - var(--container-widget-flex-grow)) * 100%);
+  --container-widget-width: calc(
+    (1 - var(--container-widget-flex-grow)) * 100%
+  );
   --container-widget-height: 100%;
   --container-widget-flex-grow: 1;
   --container-widget-align-self: stretch;
@@ -924,11 +830,9 @@ button:focus {
   --padding-left: 0px;
   --padding-right: 0px;
 }
-
 .saldo-sacar {
   margin-top: 16px;
 }
-
 .saldo-sacar-text {
   color: #000;
   font-size: 16px;
@@ -936,7 +840,6 @@ button:focus {
   font-weight: 700;
   line-height: normal;
 }
-
 .transferencia-txt {
   color: #828282;
   font-size: 13px;
@@ -944,7 +847,6 @@ button:focus {
   font-weight: 400;
   line-height: normal;
 }
-
 .pix-logo-transf {
   width: 40px;
   height: 13.684px;
@@ -956,8 +858,7 @@ button:focus {
   gap: 16px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  /* espaçamento entre itens */
+  gap: 6px; /* espaçamento entre itens */
   /* opcional: evitar quebra */
   /* flex-wrap: nowrap; */
   border-bottom: 1px solid #e2e2e4;
@@ -971,7 +872,6 @@ button:focus {
   align-items: center;
   gap: 4px;
 }
-
 .saldo-info-sacar {
   gap: 16px;
 }
@@ -982,17 +882,13 @@ button:focus {
 }
 
 .botoes-row {
-  display: flex;
-  /* Alinha os botões em linha */
-  gap: 8px;
-  /* Espaço entre os botões */
-  margin-bottom: 10px;
-  /* Espaço abaixo da linha de botões */
+  display: flex; /* Alinha os botões em linha */
+  gap: 8px; /* Espaço entre os botões */
+  margin-bottom: 10px; /* Espaço abaixo da linha de botões */
 }
 
 .btn-valor {
-  flex: 1;
-  /* Faz os botões dividirem o espaço igualmente */
+  flex: 1; /* Faz os botões dividirem o espaço igualmente */
 
   /* Cor de fundo cinza claro */
   background-color: #f0f2f5;
@@ -1000,30 +896,22 @@ button:focus {
   /* Borda transparente para evitar que o layout "pule" ao adicionar a borda ativa */
   border: 1.5px solid transparent;
 
-  border-radius: 6px;
-  /* Cantos arredondados */
-  padding: 12px 0;
-  /* Espaçamento interno (vertical, horizontal) */
+  border-radius: 6px; /* Cantos arredondados */
+  padding: 12px 0; /* Espaçamento interno (vertical, horizontal) */
   font-size: 16px;
   font-weight: bold;
-  color: #333;
-  /* Cor do texto (escuro) */
+  color: #333; /* Cor do texto (escuro) */
   cursor: pointer;
-  transition: all 0.2s ease;
-  /* Efeito de transição suave */
+  transition: all 0.2s ease; /* Efeito de transição suave */
 }
 
 /* Estilo do botão ativo (selecionado) */
 .btn-valor.btn-active {
-  background-color: #fff6f7;
-  /* Fundo rosa bem claro */
-  border-color: #f84d63;
-  /* Cor da borda rosa/vermelho */
-  color: #f84d63;
-  /* Cor do texto rosa/vermelho */
+  background-color: #fff6f7; /* Fundo rosa bem claro */
+  border-color: #f84d63; /* Cor da borda rosa/vermelho */
+  color: #f84d63; /* Cor do texto rosa/vermelho */
 }
-
-.botoes-row>.btn-valor {
+.botoes-row > .btn-valor {
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -1032,11 +920,9 @@ button:focus {
   font-weight: 700;
   line-height: normal;
 }
-
-.botoes-row>.btn-active {
+.botoes-row > .btn-active {
   color: #f82e5a;
 }
-
 .display-total {
   display: flex;
   justify-content: center;
@@ -1044,23 +930,17 @@ button:focus {
   box-sizing: border-box;
   width: 100%;
   height: 50px;
-  background-color: #f0f2f5;
-  /* Mesmo cinza dos botões */
-  border-radius: 8px;
-  /* Mesmos cantos arredondados */
+  background-color: #f0f2f5; /* Mesmo cinza dos botões */
+  border-radius: 8px; /* Mesmos cantos arredondados */
   text-align: center;
-  font-size: 16px;
-  /* Fonte maior */
+  font-size: 16px; /* Fonte maior */
   font-weight: 700;
   padding: 10px;
-  color: #000;
-  /* Cor do texto */
+  color: #000; /* Cor do texto */
 }
-
 .botoes-row-sacar {
   margin-bottom: 8px;
 }
-
 .btn-sacar-dois {
   box-sizing: border-box;
   display: flex;
@@ -1072,15 +952,13 @@ button:focus {
   align-items: center;
   gap: 10px;
 }
-
-.obtem-sacar>.obtem-txt {
+.obtem-sacar > .obtem-txt {
   color: #747378;
   font-size: 11px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
-
 .btn-textdois-sacar {
   color: #fff;
   font-size: 14px;
@@ -1088,11 +966,9 @@ button:focus {
   font-weight: 600;
   line-height: normal;
 }
-
 .obtenha-title {
   gap: 8px;
 }
-
 .moedas-txt {
   width: 251px;
   color: #747378;
@@ -1104,10 +980,8 @@ button:focus {
 
 /* Inverte apenas quando houver a flor dentro do bloco de saque */
 .saldo-sacar .container-saldo {
-  align-items: center;
-  /* centra verticalmente texto e imagem */
+  align-items: center; /* centra verticalmente texto e imagem */
 }
-
 .flor {
   width: 82px;
   height: 82px;
@@ -1115,22 +989,15 @@ button:focus {
   aspect-ratio: 1/1;
   margin-right: -20px;
 }
-
 .saldo-sacar .flor {
-  order: 2;
-  /* manda a imagem para o fim do flex container (direita) */
+  order: 2; /* manda a imagem para o fim do flex container (direita) */
   align-self: center;
-  margin-left: -30px;
-  /* espaço entre texto e imagem */
-  flex-shrink: 0;
-  /* evita que a imagem encolha */
+  margin-left: -30px; /* espaço entre texto e imagem */
+  flex-shrink: 0; /* evita que a imagem encolha */
 }
-
 .saldo-sacar .obtenha-title {
-  order: 1;
-  /* garante que o texto venha antes da imagem */
+  order: 1; /* garante que o texto venha antes da imagem */
 }
-
 .btn-sacar-indisponivel {
   display: flex;
   width: 100%;
@@ -1142,12 +1009,9 @@ button:focus {
   align-items: center;
   gap: 10px;
   cursor: not-allowed;
-  pointer-events: none;
-  /* 🔥 evita clique */
-  opacity: 0.6;
-  /* deixa visualmente bloqueado */
+  pointer-events: none; /* 🔥 evita clique */
+  opacity: 0.6; /* deixa visualmente bloqueado */
 }
-
 .btn-indis {
   color: #d4d4d4;
   font-size: 14px;
@@ -1155,7 +1019,6 @@ button:focus {
   font-weight: 600;
   line-height: normal;
 }
-
 .ddd,
 .telefone {
   color: #ababab !important;
@@ -1164,14 +1027,12 @@ button:focus {
   font-weight: 400;
   line-height: normal;
 }
-
 .linha-ddd {
   width: 1px;
   height: 18px;
   background: #e4e4e4;
 }
-
-.obtem-sacar>.recarga-txt {
+.obtem-sacar > .recarga-txt {
   color: #747378;
   font-size: 12px;
   font-style: normal;
@@ -1179,17 +1040,14 @@ button:focus {
   line-height: normal;
   text-align: center;
 }
-
 .border-none {
   border: 0;
 }
-
 .saque-title {
   overflow: hidden;
   background: #fefefe;
   border-bottom: 1px solid #e0e0e0;
 }
-
 .saque-popup {
   height: 300px;
   margin: 0 auto;
@@ -1199,24 +1057,20 @@ button:focus {
   border-radius: 10px;
   overflow: hidden;
 }
-
 #five .saque-popup,
 #six .saque-popup {
   height: auto !important;
   min-height: 300px;
 }
-
-#four {}
-
+#four {
+}
 #four a {
   text-decoration: none;
 }
-
 .pix-solo {
   width: 13px;
   height: 13px;
 }
-
 .pix-title {
   align-self: stretch;
   color: #000;
@@ -1225,7 +1079,6 @@ button:focus {
   font-weight: 500;
   line-height: normal;
 }
-
 .pix-subtitle {
   align-self: stretch;
   color: #747378;
@@ -1234,7 +1087,6 @@ button:focus {
   font-weight: 500;
   line-height: normal;
 }
-
 .pix-icon {
   display: flex;
   width: 30px;
@@ -1247,7 +1099,6 @@ button:focus {
   justify-content: center;
   align-items: center;
 }
-
 .pix-item {
   display: flex;
   gap: 8px;
@@ -1267,30 +1118,23 @@ button:focus {
 .pix-item:active {
   background-color: #e8e8e8;
 }
-
 .pix-details {
   display: flex;
   flex-direction: column;
 }
-
 .pix-subtitle {
   margin-top: 8px;
 }
-
 .pix-arrow {
-  margin-left: auto;
-  /* empurra para a direita */
-  align-self: flex-start;
-  /* cola no topo do container flex */
+  margin-left: auto; /* empurra para a direita */
+  align-self: flex-start; /* cola no topo do container flex */
   /* já tem width/height, ajuste se precisar */
   width: 25px;
   height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* Define uma fonte base e um fundo para melhor visualização */
+} /* Define uma fonte base e um fundo para melhor visualização */
 
 /* O contêiner principal do nosso formulário */
 .form-container {
@@ -1303,7 +1147,6 @@ button:focus {
 .form-group {
   margin-bottom: 24px;
 }
-
 .form-group:last-child {
   margin-bottom: 0;
 }
@@ -1311,24 +1154,19 @@ button:focus {
 /* Estilo dos rótulos (Nome, Chave PIX) */
 .field-label {
   font-size: 16px;
-  font-weight: 600;
-  /* Um "negrito" suave */
-  color: #1c1e21;
-  /* Cor preta/cinza escuro */
+  font-weight: 600; /* Um "negrito" suave */
+  color: #1c1e21; /* Cor preta/cinza escuro */
   display: block;
 }
 
 /* Estilo do campo de input (Nome completo) */
 input[type="text"] {
   width: 100%;
-  border: none;
-  /* Remove todas as bordas */
-  border-bottom: 1px solid #ddd;
-  /* Adiciona apenas a linha inferior */
+  border: none; /* Remove todas as bordas */
+  border-bottom: 1px solid #ddd; /* Adiciona apenas a linha inferior */
   font-size: 16px;
 
-  background-color: transparent;
-  /* Fundo transparente */
+  background-color: transparent; /* Fundo transparente */
 }
 
 /* Cor do texto do placeholder */
@@ -1340,8 +1178,7 @@ input[type="text"]::placeholder {
 /* Remove a borda azul padrão ao focar no input */
 input[type="text"]:focus {
   outline: none;
-  border-bottom-color: #555;
-  /* Pode mudar a cor da linha ao focar */
+  border-bottom-color: #555; /* Pode mudar a cor da linha ao focar */
 }
 
 /* Estilo do 'botão' seletor de Chave PIX */
@@ -1359,8 +1196,7 @@ input[type="text"]:focus {
   justify-content: space-between;
   align-items: center;
 
-  cursor: pointer;
-  /* Muda o mouse para 'mãozinha' */
+  cursor: pointer; /* Muda o mouse para 'mãozinha' */
   transition: background-color 0.2s ease;
 }
 
@@ -1371,8 +1207,7 @@ input[type="text"]:focus {
 
 /* Texto 'Escolha o tipo...' */
 .pix-selector .placeholder-text {
-  color: #999;
-  /* Mesma cor do placeholder */
+  color: #999; /* Mesma cor do placeholder */
 }
 
 /* A seta '>' */
@@ -1381,7 +1216,6 @@ input[type="text"]:focus {
   font-weight: bold;
   font-size: 18px;
 }
-
 .field-label {
   color: #000;
   font-size: 14px;
@@ -1389,12 +1223,10 @@ input[type="text"]:focus {
   font-weight: 600;
   line-height: normal;
 }
-
 input.nome-completo {
   margin-top: 20px;
   padding-bottom: 16px;
 }
-
 input.nome-completo,
 .placeholder-text {
   color: #000;
@@ -1403,10 +1235,8 @@ input.nome-completo,
   font-weight: 400;
   line-height: normal;
 }
-
 .arrow-tois {
-  margin-left: auto;
-  /* empurra para a direita */
+  margin-left: auto; /* empurra para a direita */
   align-self: flex-start;
   display: flex;
   justify-content: center;
@@ -1415,7 +1245,6 @@ input.nome-completo,
   height: 8.943px;
   flex-shrink: 0;
 }
-
 .btn-vincular {
   margin-top: -5px;
 }
@@ -1425,16 +1254,13 @@ input.nome-completo,
 #five .btn-sacar-dois {
   width: 100%;
   max-width: 100%;
-}
-
-/* O contêiner principal para a lista de seleção */
+} /* O contêiner principal para a lista de seleção */
 .selection-container {
   width: 100%;
   max-width: 400px;
   background-color: #ffffff;
   border-radius: 8px;
-  overflow: hidden;
-  /* Garante que as bordas fiquem bonitas */
+  overflow: hidden; /* Garante que as bordas fiquem bonitas */
 }
 
 /* Cada linha de opção */
@@ -1447,11 +1273,9 @@ input.nome-completo,
 .option-row::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  /* Alinha na parte de baixo */
+  bottom: 0; /* Alinha na parte de baixo */
   height: 1px;
-  background-color: #ddd;
-  /* A cor da sua linha */
+  background-color: #ddd; /* A cor da sua linha */
 
   /* A MÁGICA: Define o recuo de 20px em cada lado */
   left: 20px;
@@ -1462,12 +1286,10 @@ input.nome-completo,
 .option-row:last-child::after {
   /* display: none; */
 }
-
 /* O 'label' é o nosso contêiner flexível */
 .option-row label {
   display: flex;
-  justify-content: space-between;
-  /* Joga o texto para a esquerda e o rádio para a direita */
+  justify-content: space-between; /* Joga o texto para a esquerda e o rádio para a direita */
   align-items: center;
   padding: 20px 20px 0px 20px;
   cursor: pointer;
@@ -1498,33 +1320,26 @@ input.nome-completo,
   display: block;
   width: 20px;
   height: 20px;
-  border-radius: 50%;
-  /* Deixa redondo */
+  border-radius: 50%; /* Deixa redondo */
 
   /* Estilo "Não selecionado" (borda cinza, fundo branco) */
   border: 2px solid #e0e0e0;
   background-color: #fff;
   box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
-  /* Animação suave */
+  transition: all 0.2s ease-in-out; /* Animação suave */
 }
 
 /* 3. A MÁGICA: MUDAMOS O ESTILO DO RÁDIO FALSO QUANDO O ORIGINAL ESTÁ :checked */
-.option-row input[type="radio"]:checked+.custom-radio {
-  border-color: #fff;
-  /* Borda rosa */
-  background-color: #ff2657;
-  /* <--- Mude aqui para a cor rosa */
-  box-shadow: 0 0 0 1px #ff2657;
-  /* Brilho externo */
+.option-row input[type="radio"]:checked + .custom-radio {
+  border-color: #fff; /* Borda rosa */
+  background-color: #ff2657; /* <--- Mude aqui para a cor rosa */
+  box-shadow: 0 0 0 1px #ff2657; /* Brilho externo */
   box-sizing: border-box;
   border-width: 2.5px;
 }
-
 .option-row label {
   padding-bottom: 13px;
 }
-
 /* =========================================
    Estilos para a nova tela de loading (#seven)
    ========================================= */
@@ -1541,12 +1356,9 @@ input.nome-completo,
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  visibility: visible;
-  /* Inicia visível */
-  opacity: 1;
-  /* Inicia com opacidade total */
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  /* Animação para ocultar */
+  visibility: visible; /* Inicia visível */
+  opacity: 1; /* Inicia com opacidade total */
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* Animação para ocultar */
 }
 
 /* Estilo da página de carregamento após o preloader fake */
@@ -1559,19 +1371,14 @@ input.nome-completo,
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  /* Alinha os itens ao fundo */
-  align-items: flex-start;
-  /* Alinha os itens à esquerda */
+  justify-content: flex-end; /* Alinha os itens ao fundo */
+  align-items: flex-start; /* Alinha os itens à esquerda */
   padding-left: 20px;
   padding-right: 20px;
   z-index: 9998;
-  visibility: hidden;
-  /* Inicialmente oculto */
-  opacity: 1;
-  /* Opacidade total no início */
-  transition: opacity 1s ease, visibility 1s ease;
-  /* Animação de fade out */
+  visibility: hidden; /* Inicialmente oculto */
+  opacity: 1; /* Opacidade total no início */
+  transition: opacity 1s ease, visibility 1s ease; /* Animação de fade out */
   box-sizing: border-box;
 }
 
@@ -1591,30 +1398,23 @@ input.nome-completo,
 
 .progress-bar-fill {
   height: 100%;
-  width: 0%;
-  /* Começa com 0% */
+  width: 0%; /* Começa com 0% */
   background-color: #fe2b54;
-  transition: width 2s ease;
-  /* Animação de transição suave para a largura da barra */
+  transition: width 2s ease; /* Animação de transição suave para a largura da barra */
 }
 
 /* Status text */
 .status-text {
   font-family: "Inter", sans-serif;
-  font-weight: 900;
-  /* Fonte mais grossa */
+  font-weight: 900; /* Fonte mais grossa */
   font-size: 28px;
-  color: #ea445a;
+  color: black;
   margin-top: 48px;
   width: 100%;
-  text-align: left;
-  /* Alinhado à esquerda */
-  transform: translateY(20px);
-  /* Começa ligeiramente abaixo */
-  opacity: 0;
-  /* Começa invisível */
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  /* Animação de deslizar para cima */
+  text-align: left; /* Alinhado à esquerda */
+  transform: translateY(20px); /* Começa ligeiramente abaixo */
+  opacity: 0; /* Começa invisível */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Animação de deslizar para cima */
   min-width: 0;
   flex-shrink: 1;
 }
@@ -1642,8 +1442,7 @@ body.loading-active {
   background-color: #ffffff;
   padding: 0;
   overflow-y: auto;
-  height: 100dvh;
-  /* Use dynamic viewport height */
+  height: 100dvh; /* Use dynamic viewport height */
   min-height: 100dvh;
   box-sizing: border-box;
   position: relative;
@@ -1663,8 +1462,7 @@ body.loading-active {
   box-sizing: border-box;
   padding-bottom: 0;
   width: 100%;
-  overflow-x: hidden;
-  /* Previne overflow horizontal */
+  overflow-x: hidden; /* Previne overflow horizontal */
 }
 
 .confirmation-section {
@@ -1698,12 +1496,11 @@ body.loading-active {
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
-  /* Previne que filhos ultrapassem */
+  overflow: hidden; /* Previne que filhos ultrapassem */
 }
 
 .confirmation-balance {
-  background: linear-gradient(135deg, #ea445a, #1a1a1a);
+  background: linear-gradient(135deg, #000000, #1a1a1a);
   color: white;
   border: none;
 }
@@ -1962,7 +1759,6 @@ body.loading-active {
   font-weight: 500;
   font-size: 11px;
 }
-
 .expira-saldo {
   width: 100vw;
   position: relative;
@@ -1972,7 +1768,6 @@ body.loading-active {
   margin-right: -50vw;
   box-sizing: border-box;
 }
-
 .timer-wrapper {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   /* Cor de fundo cinza, como na imagem */
@@ -1998,29 +1793,22 @@ body.loading-active {
   line-height: normal;
   text-transform: uppercase;
 }
-
 .saldo-dois {
   margin-top: 20px;
 }
-
 .sticky-popup {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-  /* Garante que o margin: 0 auto funcione para centralizar */
-  margin: 0 auto;
-  /* Centraliza no desktop */
+  right: 0; /* Garante que o margin: 0 auto funcione para centralizar */
+  margin: 0 auto; /* Centraliza no desktop */
   width: 100%;
-  max-width: 350px;
-  /* Mesma largura do container principal (.saldo) */
+  max-width: 350px; /* Mesma largura do container principal (.saldo) */
   z-index: 99;
-  transform: translateY(100%);
-  /* Escondido por padrão */
+  transform: translateY(100%); /* Escondido por padrão */
   transition: transform 0.3s ease-in-out;
   display: block;
-  pointer-events: none;
-  /* Evita bloquear cliques quando escondido (se transform falhar) */
+  pointer-events: none; /* Evita bloquear cliques quando escondido (se transform falhar) */
 }
 
 .sticky-popup.is-visible {
@@ -2031,47 +1819,39 @@ body.loading-active {
 .saldo-popup,
 .expira-em-popup {
   background-color: white;
-  margin: 0 auto;
-  /* Centraliza o conteúdo se tiver max-width */
-  max-width: 100%;
-  /* Garante que ocupe a largura */
+  margin: 0 auto; /* Centraliza o conteúdo se tiver max-width */
+  max-width: 100%; /* Garante que ocupe a largura */
 }
 
 .saldo-popup {
   border-radius: 0;
-  padding-bottom: 20px;
-  /* Espaço extra para segurança em mobile */
+  padding-bottom: 20px; /* Espaço extra para segurança em mobile */
 }
 
 .expira-em-popup {
   border-radius: 8px 8px 0 0;
-  width: fit-content;
-  /* O timer só ocupa o necessário */
-  padding: 0 15px;
-  /* Padding lateral */
-  margin: 0 auto;
-  /* Centraliza horizontalmente (para o popup #two) */
+  width: fit-content; /* O timer só ocupa o necessário */
+  padding: 0 15px; /* Padding lateral */
+  margin: 0 auto; /* Centraliza horizontalmente (para o popup #two) */
 }
 
 /* Ajuste específico para o sticky popup (#popup-um) */
 #popup-um .expira-em-popup {
-  width: 100%;
-  /* Ocupa 100% da largura */
+  width: 100%; /* Ocupa 100% da largura */
   display: flex;
-  justify-content: center;
-  /* Centraliza o conteúdo interno */
-  margin: 0;
-  /* Remove margem auto pois width é 100% */
+  justify-content: center; /* Centraliza o conteúdo interno */
+  margin: 0; /* Remove margem auto pois width é 100% */
   box-sizing: border-box;
 }
-
-.line-expira {}
-
+.line-expira {
+}
 .expira-em-popup {
   --display: flex;
   --min-height: 117px;
   --flex-direction: row;
-  --container-widget-width: calc((1 - var(--container-widget-flex-grow)) * 100%);
+  --container-widget-width: calc(
+    (1 - var(--container-widget-flex-grow)) * 100%
+  );
   --container-widget-height: 100%;
   --container-widget-flex-grow: 1;
   --container-widget-align-self: stretch;
@@ -2092,7 +1872,6 @@ body.loading-active {
   --padding-left: 0px;
   --padding-right: 0px;
 }
-
 .timer-separator {
   width: 3px;
   height: 7px;
@@ -2103,7 +1882,6 @@ body.loading-active {
   line-height: 53%;
   text-align: center;
 }
-
 .btn-txt-obrigado {
   color: #fff;
   font-size: 16px;
@@ -2111,22 +1889,19 @@ body.loading-active {
   font-weight: 600;
   line-height: normal;
 }
-
-.popup>.timer-wrapper {
+.popup > .timer-wrapper {
   background: none;
 }
 
 /* === modal popup (section id="two") === */
 .screen.is-modal {
   position: fixed;
-  inset: 0;
-  /* top:0; right:0; bottom:0; left:0; */
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.45);
-  /* overlay */
+  background: rgba(0, 0, 0, 0.45); /* overlay */
   padding: 1.5rem;
   box-sizing: border-box;
 }
@@ -2157,14 +1932,12 @@ body.modal-open {
 .screen.is-modal .modal-inner * {
   pointer-events: auto;
 }
-
-#two>.modal-inner {
+#two > .modal-inner {
   background: none;
   box-shadow: none;
   margin: 0;
   padding: 0;
 }
-
 button:hover {
   cursor: pointer;
 }
@@ -2173,21 +1946,17 @@ button:hover {
 /* sera */
 .modal-screen {
   position: fixed;
-  inset: 0;
-  /* ocupa a tela inteira */
+  inset: 0; /* ocupa a tela inteira */
   background: rgba(0, 0, 0, 0.45);
-  display: none;
-  /* começa escondida */
+  display: none; /* começa escondida */
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
 .modal-screen.is-active {
-  display: flex;
-  /* aparece como popup */
+  display: flex; /* aparece como popup */
 }
-
 /* === modal popup #four — colado na parte inferior, full width === */
 #four.is-modal,
 #four.is-modal.is-active {
@@ -2196,30 +1965,23 @@ button:hover {
   z-index: 9999;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  /* Alinha na parte inferior */
+  align-items: flex-end; /* Alinha na parte inferior */
   background: rgba(0, 0, 0, 0.45);
-  padding: 0;
-  /* Remove padding para full width */
+  padding: 0; /* Remove padding para full width */
   box-sizing: border-box;
 }
-
 /* garante que o conteúdo do modal continue acima do overlay */
 #four .modal-inner {
   position: relative;
   z-index: 10000;
-  width: 100%;
-  /* Full width */
-  max-width: 100%;
-  /* Remove limite de largura */
-  border-radius: 12px 12px 0 0;
-  /* Sem border-radius bottom */
+  width: 100%; /* Full width */
+  max-width: 100%; /* Remove limite de largura */
+  border-radius: 12px 12px 0 0; /* Sem border-radius bottom */
   margin: 0;
   padding: 1.5rem;
   background: #fff;
   box-sizing: border-box;
 }
-
 .bold {
   font-weight: bold;
 }
@@ -2227,15 +1989,12 @@ button:hover {
 /* transforma sections com class .modal em overlay */
 .modal {
   position: fixed;
-  inset: 0;
-  /* top:0; right:0; bottom:0; left:0 */
-  display: none;
-  /* escondido por padrão */
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  display: none; /* escondido por padrão */
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  pointer-events: none;
-  /* evita interação quando fechado */
+  pointer-events: none; /* evita interação quando fechado */
 }
 
 /* quando o modal for ativado pelo JS */
@@ -2243,20 +2002,16 @@ button:hover {
 .modal.is-active.is-modal {
   display: flex;
   pointer-events: auto;
-  background: rgba(0, 0, 0, 0.55);
-  /* escurece o fundo */
-  backdrop-filter: blur(6px) saturate(120%);
-  /* opcional: desfoque do fundo */
+  background: rgba(0, 0, 0, 0.55); /* escurece o fundo */
+  backdrop-filter: blur(6px) saturate(120%); /* opcional: desfoque do fundo */
   -webkit-backdrop-filter: blur(6px) saturate(120%);
 }
 
 /* #four usa o mesmo estilo do popup inicial #two (sem blur) */
 #four.is-modal.is-active,
 #four.is-active.is-modal {
-  background: rgba(0, 0, 0, 0.45);
-  /* mesmo overlay do popup #two */
-  backdrop-filter: none;
-  /* remove blur */
+  background: rgba(0, 0, 0, 0.45); /* mesmo overlay do popup #two */
+  backdrop-filter: none; /* remove blur */
   -webkit-backdrop-filter: none;
 }
 
@@ -2265,16 +2020,12 @@ button:hover {
 #five.is-modal.is-active {
   position: fixed;
   inset: 0;
-  z-index: 10001;
-  /* maior que #four (9999) para ficar por cima */
+  z-index: 10001; /* maior que #four (9999) para ficar por cima */
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  /* Alinha na parte inferior */
-  background: transparent;
-  /* Remove overlay para não escurecer mais */
-  padding: 0;
-  /* Remove padding para full width */
+  align-items: flex-end; /* Alinha na parte inferior */
+  background: transparent; /* Remove overlay para não escurecer mais */
+  padding: 0; /* Remove padding para full width */
   box-sizing: border-box;
 }
 
@@ -2282,12 +2033,10 @@ button:hover {
 #five .modal-inner {
   position: relative;
   z-index: 10002;
-  max-width: 100%;
-  /* Full width */
+  max-width: 100%; /* Full width */
   width: 100%;
   background: #fff;
-  border-radius: 12px 12px 0 0;
-  /* Sem border-radius bottom */
+  border-radius: 12px 12px 0 0; /* Sem border-radius bottom */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   padding: 1.5rem;
   margin: 0;
@@ -2299,16 +2048,12 @@ button:hover {
 #six.is-modal.is-active {
   position: fixed;
   inset: 0;
-  z-index: 10003;
-  /* maior que #five (10001) para ficar por cima */
+  z-index: 10003; /* maior que #five (10001) para ficar por cima */
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  /* Alinha na parte inferior */
-  background: transparent;
-  /* Remove overlay para não escurecer mais */
-  padding: 0;
-  /* Remove padding para full width */
+  align-items: flex-end; /* Alinha na parte inferior */
+  background: transparent; /* Remove overlay para não escurecer mais */
+  padding: 0; /* Remove padding para full width */
   box-sizing: border-box;
 }
 
@@ -2316,12 +2061,10 @@ button:hover {
 #six .modal-inner {
   position: relative;
   z-index: 10004;
-  max-width: 100%;
-  /* Full width */
+  max-width: 100%; /* Full width */
   width: 100%;
   background: #fff;
-  border-radius: 12px 12px 0 0;
-  /* Sem border-radius bottom */
+  border-radius: 12px 12px 0 0; /* Sem border-radius bottom */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   padding: 20px;
   margin: 0;
@@ -2357,7 +2100,6 @@ button:hover {
   position: relative;
   z-index: 10000;
 }
-
 .valor-currency-tres {
   color: #000;
   font-size: 22px;
@@ -2365,7 +2107,6 @@ button:hover {
   font-weight: 700;
   line-height: normal;
 }
-
 .valor-currency-quatro {
   color: #000;
   font-size: 36px !important;
@@ -2373,7 +2114,6 @@ button:hover {
   font-weight: 700;
   line-height: normal;
 }
-
 /* === Button Feedback (Hover/Active) === */
 .btn-sacar,
 .btn-obrigado,
@@ -2399,13 +2139,11 @@ button:hover {
 
 /* === Media Query para Desktop === */
 @media (min-width: 768px) {
-
   /* Popups no desktop têm max-width igual ao conteúdo principal */
   #four .modal-inner,
   #five .modal-inner,
   #six .modal-inner {
-    max-width: 350px;
-    /* Mesma largura do .saldo e .bloco-dois */
+    max-width: 350px; /* Mesma largura do .saldo e .bloco-dois */
     width: 100%;
   }
 
@@ -2420,7 +2158,6 @@ button:hover {
     margin: 0 auto;
     border-radius: 8px;
   }
-
   #popup-um .saldo {
     border-radius: 8px;
   }
@@ -2433,7 +2170,6 @@ button.btn-obrigado.btn-sacar-dois.btn-sacar-indisponivel:focus {
   transform: none;
   opacity: 1;
 }
-
 .btn-three-saque,
 .btn-three-saque:active,
 .btn-three-saque:focus {
@@ -2441,24 +2177,19 @@ button.btn-obrigado.btn-sacar-dois.btn-sacar-indisponivel:focus {
   transform: none;
   opacity: 1;
 }
-
 .obtem.obtem-sacar {
   text-align: center;
 }
-
 .sacar-dinheiro span {
   width: 299px;
   text-align: center;
 }
-
 .ctn-flor {
   margin-bottom: 19px;
 }
-
 .saldo-info.obtenha-title {
   width: 100%;
 }
-
 @media (max-width: 767px) {
   #popup-um {
     width: 100%;
@@ -2469,7 +2200,6 @@ button.btn-obrigado.btn-sacar-dois.btn-sacar-indisponivel:focus {
     left: 0;
     right: 0;
   }
-
   #popup-um .saldo {
     width: 100%;
     max-width: none;
@@ -2478,20 +2208,16 @@ button.btn-obrigado.btn-sacar-dois.btn-sacar-indisponivel:focus {
     padding-right: 0;
   }
 }
-
 #popup-um .container-saldo {
   padding: 0 20px;
 }
-
 .p-saldo-maior {
   width: 69px;
   height: 69px;
 }
-
 .modal-inner.inner-pop {
   padding: 0 !important;
 }
-
 .parabens-img {
   width: 148px;
   height: 148px;
@@ -2504,11 +2230,9 @@ button.btn-obrigado.btn-sacar-dois.btn-sacar-indisponivel:focus {
 /* Estado desabilitado do input */
 /* Estado desabilitado do input */
 .input-disabled {
-  background-color: transparent !important;
-  /* Fundo transparente para igualar aos outros */
+  background-color: transparent !important; /* Fundo transparente para igualar aos outros */
   cursor: not-allowed;
-  opacity: 1;
-  /* Opacidade normal para não parecer diferente */
+  opacity: 1; /* Opacidade normal para não parecer diferente */
 }
 
 /* Padronização dos inputs e linhas */
@@ -2517,12 +2241,9 @@ input.nome-completo,
 .pix-selector {
   width: 100% !important;
   border: none;
-  border-bottom: 1px solid #e5e5e5 !important;
-  /* Linha padrão */
-  border-radius: 0 !important;
-  /* Remove arredondamento da linha */
-  padding-left: 0 !important;
-  /* Remove recuo esquerdo */
+  border-bottom: 1px solid #e5e5e5 !important; /* Linha padrão */
+  border-radius: 0 !important; /* Remove arredondamento da linha */
+  padding-left: 0 !important; /* Remove recuo esquerdo */
   padding-right: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
@@ -2552,19 +2273,15 @@ input.nome-completo,
   0% {
     transform: translateX(0);
   }
-
   25% {
     transform: translateX(-5px);
   }
-
   50% {
     transform: translateX(5px);
   }
-
   75% {
     transform: translateX(-5px);
   }
-
   100% {
     transform: translateX(0);
   }
@@ -2586,8 +2303,7 @@ input.nome-completo,
 /* Ajuste de padding interno para o erro não colar no texto */
 .input-error {
   padding: 10px !important;
-  box-sizing: border-box !important;
-  /* Garante que o padding não aumente o tamanho total */
+  box-sizing: border-box !important; /* Garante que o padding não aumente o tamanho total */
 }
 
 /* Remove hover/active do botão Enviar PIX especificamente */
@@ -2596,8 +2312,7 @@ input.nome-completo,
 #btn-enviar-pix:focus {
   transform: none !important;
   opacity: 1 !important;
-  filter: none !important;
-  /* Remove alteração de cor se houver */
+  filter: none !important; /* Remove alteração de cor se houver */
 }
 
 /* Mantém o estilo disabled se estiver com a classe */
@@ -2606,19 +2321,15 @@ input.nome-completo,
   filter: grayscale(100%) !important;
   cursor: not-allowed !important;
 }
-
 .confirmation-security-label img {
   max-width: 100%;
 }
-
 .img-bacen {
   width: 50px;
 }
-
 .img-gov-br {
   width: 70px;
 }
-
 .img-receitafederal {
   width: 70px;
 }
@@ -2711,10 +2422,12 @@ input.nome-completo,
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   animation: shimmer 2s infinite;
   border-radius: 3px;
 }
@@ -2723,7 +2436,6 @@ input.nome-completo,
   0% {
     transform: translateX(-100%);
   }
-
   100% {
     transform: translateX(100%);
   }
@@ -2736,21 +2448,21 @@ input.nome-completo,
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(254, 44, 85, 0.1),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(254, 44, 85, 0.1),
+    transparent
+  );
   animation: pulse 3s infinite;
   border-radius: 3px;
 }
 
 @keyframes pulse {
-
   0%,
   100% {
     opacity: 0.3;
   }
-
   50% {
     opacity: 0.7;
   }
@@ -2799,7 +2511,6 @@ input.nome-completo,
 #seven[aria-hidden="true"] {
   display: none;
 }
-
 .loading-logo-img {
   width: 96px;
 }

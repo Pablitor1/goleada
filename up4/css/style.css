@@ -5,19 +5,17 @@
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-}
+  }
 
 
 /* RESET INPUT FONTE 16 PX PARA NAO DAR ZOOM NO CLIQUE MOBILE */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
     select,
     textarea,
     input {
-        font-size: 16px;
+      font-size: 16px;
     }
 }
-
 /* RESET INPUT FONTE 16 PX PARA NAO DAR ZOOM NO CLIQUE MOBILE */
 
 /* FONTES */
@@ -25,37 +23,30 @@
     font-family: 'Recoleta';
     src: url('https://nortnovomundo.fun/up4/fonts/RecoletaAlt-Regular.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'RecoletaBold';
     src: url('https://nortnovomundo.fun/up4/fonts/RecoletaAlt-Bold.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'RecoletaMedium';
     src: url('https://nortnovomundo.fun/up4/fonts/RecoletaAlt-Medium.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'RecoletaBlack';
     src: url('https://nortnovomundo.fun/up4/fonts/RecoletaAlt-Black.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'Radian';
     src: url('../fonts/Radian-Regular.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'PoppinsBold';
     src: url('https://nortnovomundo.fun/up4/fonts/Poppins-Bold.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'PoppinsSemiBold';
     src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
 }
-
 /* RESET INPUT FONTE 16 PX PARA NAO DAR ZOOM NO CLIQUE MOBILE */
 
 
@@ -64,7 +55,6 @@
     from {
         width: 0;
     }
-
     to {
         width: 10em;
     }
@@ -72,9 +62,8 @@
 
 @keyframes blinkCursor {
     from {
-        border-right-color: #ea445a;
+        border-right-color: #000000;
     }
-
     to {
         border-right-color: transparent;
     }
@@ -85,7 +74,6 @@
     from {
         width: 0;
     }
-
     to {
         width: 21em;
     }
@@ -93,25 +81,24 @@
 
 @keyframes blinkCursorCodigo {
     from {
-        border-right-color: #ea445a;
+        border-right-color: #000000;
     }
-
     to {
         border-right-color: transparent;
     }
 }
 
-@keyframes loading {
-    0% {
-        transform: rotate(0deg);
+@keyframes loading{
+    0%{
+      transform: rotate(0deg);
     }
-
-    100% {
-        transform: rotate(360deg);
+  
+    100%{
+      transform: rotate(360deg);
     }
 }
 
-.loading {
+.loading{
     width: 25px;
     height: 25px;
     background-color: transparent;
@@ -123,40 +110,39 @@
     margin-top: 10px;
 }
 
-.ok {
+.ok{
     width: 25px;
     margin-right: 10px;
     margin-top: 3px;
 }
 
-.carregando {
-    border-right: 2px solid #ea445a;
-    text-align: center;
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    margin-top: 70px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 15px;
+.carregando{
+    border-right: 2px solid #000000; 
+    text-align: center; 
+    margin: 0 auto; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    position: absolute; 
+    margin-top: 70px; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 15px; 
     letter-spacing: 2px;
     animation: blinkCursor 500ms steps(40) infinite normal, typing 4s steps(40) 1s infinite normal both;
 }
 
-.carregandoCodigo {
+.carregandoCodigo{
     margin-top: 11px;
-    font-size: 15px;
+    font-size: 15px; 
+    letter-spacing: 2px;
+}
+.codigoLocalizado{
+    margin-top: 20px; 
+    font-size: 15px; 
     letter-spacing: 2px;
 }
 
-.codigoLocalizado {
-    margin-top: 20px;
-    font-size: 15px;
-    letter-spacing: 2px;
-}
-
-#textoCarregandoCodigo {
+#textoCarregandoCodigo{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -165,51 +151,48 @@
     margin-top: 5px;
 }
 
-#textoCodigoEncontrado {
+#textoCodigoEncontrado{
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
     justify-content: center;
 }
-
 /* EFEITOS WRITING E LOADING DO CARREGANDO */
 
 
 
-.linkCadastro {
+.linkCadastro{
+    text-decoration: none;
+    color: unset;
+}
+.linkCadastro:hover{
+    text-decoration: none;
+    color: unset;
+}
+.linkCadastro:active{
     text-decoration: none;
     color: unset;
 }
 
-.linkCadastro:hover {
-    text-decoration: none;
-    color: unset;
-}
-
-.linkCadastro:active {
-    text-decoration: none;
-    color: unset;
-}
-
-.divCadastro {
-    background-color: #FFDF00;
-    width: 90%;
-    height: 100px;
-    margin-left: 5%;
-    margin-top: 125px;
-    position: relative;
+.divCadastro{
+    background-color: #FFDF00; 
+    width: 90%; 
+    height: 100px; 
+    margin-left: 5%; 
+    margin-top: 125px; 
+    position: relative; 
     border-radius: 15px;
     -webkit-animation: pulse 3.5s infinite;
 }
 
-.divChavePix {
-    background-color: #FFDF00;
-    width: 90%;
-    height: 80px;
-    margin-left: 5%;
-    margin-top: 125px;
-    position: relative;
+.divChavePix{
+    background-color: #FFDF00; 
+    width: 90%; 
+    height: 80px; 
+    margin-left: 5%; 
+    margin-top: 125px; 
+    position: relative; 
     border-radius: 15px;
 }
 
@@ -219,7 +202,7 @@
 .corteLayout {
     width: 100%;
     height: 163px;
-    background: #ea445a;
+    background: black;
     border-radius: 400px / 100px;
     position: absolute;
     bottom: -109px;
@@ -228,34 +211,32 @@
 .corteLayoutTop {
     width: 100%;
     height: 153px;
-    background: #ea445a;
+    background: black;
     border-radius: 592px / 41px;
     position: absolute;
     top: -69px;
 }
-
 /* EFEITOS WRITING E LOADING DO CARREGANDO */
 
 
 /* BACKGROUNUD PARA USAR NO BODY */
-.fundo1 {
+.fundo1{
     background-color: #FFDF00;
 }
 
-.fundo2 {
+.fundo2{
     background-color: #F4F4F4;
 }
 
-.fundoWhite {
+.fundoWhite{
     background-color: #FFFFFF;
 }
-
 /* BACKGROUNUD PARA USAR NO BODY */
 
 
 
 /* SALDO FUNIL */
-.boxSaldo {
+.boxSaldo{
     width: auto;
     height: 40px;
     border: 2px solid #5fb4ff;
@@ -267,29 +248,27 @@
     float: right;
 }
 
-.textoSaldo {
+.textoSaldo{
     font-size: 10px;
     color: white;
     font-weight: 700;
     position: relative;
-    top: -14px;
-    ;
+    top: -14px;;
     margin: 0 0 0 9px;
     padding: 1px 5px;
     background: #FFFFFF;
     width: fit-content;
 }
 
-.valorSaldo {
+.valorSaldo{
     margin: -17px 0 0 12px;
-    font-family: 'PoppinsSemiBold';
+    font-family: 'PoppinsSemiBold'; 
     color: white;
 }
 
-.saldoAnimado {
+.saldoAnimado{
     -webkit-animation: bounceIn 3.5s ease;
 }
-
 /* SALDO FUNIL */
 
 
@@ -304,9 +283,9 @@
     margin-right: 25px;
     align-items: stretch;
     flex-direction: column;
-}
-
-.coolinput label.text {
+  }
+  
+  .coolinput label.text {
     font-size: 0.75rem;
     color: #707070;
     font-weight: 700;
@@ -316,57 +295,56 @@
     padding: 1px 5px;
     background: #FFFFFF;
     width: fit-content;
-}
-
-.coolinput input[type=text].input {
+  }
+  
+  .coolinput input[type=text].input {
     padding: 11px 10px;
     font-size: 16px;
     border: 1px #707070 solid;
     border-radius: 8px;
     background: #FFFFFF;
     font-family: 'Radian';
-}
+  }
 
 .coolinput input[type=text].readyOnly {
     color: #cccccc;
     cursor: no-drop;
 }
-
-.coolinput input[type=text].input:focus {
+  
+  .coolinput input[type=text].input:focus {
     outline: none;
-}
+  }
 
 
-.coolinput input[type=password].input {
+  .coolinput input[type=password].input {
     padding: 11px 10px;
     font-size: 16px;
     border: 1px #707070 solid;
     border-radius: 8px;
     background: #FFFFFF;
     font-family: 'Radian';
-}
+  }
 
-.coolinput input[type=password].readyOnly {
+  .coolinput input[type=password].readyOnly {
     color: #cccccc;
     cursor: no-drop;
 }
-
-.coolinput input[type=password].input:focus {
+  
+  .coolinput input[type=password].input:focus {
     outline: none;
-}
+  }
 
-.imgEdit {
+  .imgEdit{
     width: 20px;
     position: absolute;
     right: 10px;
     top: 37px;
-}
-
+  }
 /* INPUTS FUNIL */
 
 
 /* CADASTRO */
-.continuarInativo {
+.continuarInativo{
     color: #7A7A7A;
     border-radius: 8px;
     background-color: #F4F4F4;
@@ -374,11 +352,9 @@
     position: fixed;
     margin-right: 50px;
     bottom: 20px;
-    width: -webkit-fill-available;
-    /* Mozilla-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
 }
-
-.continuarInativo:hover {
+.continuarInativo:hover{
     color: #7A7A7A;
     border-radius: 8px;
     background-color: #F4F4F4;
@@ -388,8 +364,8 @@
 
 
 
-.continuarAtivo {
-    color: #ea445a;
+.continuarAtivo{
+    color: #000000;
     border-radius: 8px;
     background-color: #FFD900;
     border: none;
@@ -400,9 +376,8 @@
     display: none;
     -webkit-animation: pulse 3.5s infinite;
 }
-
-.continuarAtivo:hover {
-    color: #ea445a;
+.continuarAtivo:hover{
+    color: #000000;
     border-radius: 8px;
     background-color: #FFD900;
     border: none;
@@ -411,8 +386,8 @@
 
 
 
-.finalizarAtivo {
-    color: #ea445a;
+.finalizarAtivo{
+    color: #000000;
     border-radius: 8px;
     background-color: #FFD900;
     border: none;
@@ -422,9 +397,8 @@
     width: -webkit-fill-available;
     -webkit-animation: pulse 3.5s infinite;
 }
-
-.finalizarAtivo:hover {
-    color: #ea445a;
+.finalizarAtivo:hover{
+    color: #000000;
     border-radius: 8px;
     background-color: #FFD900;
     border: none;
@@ -433,72 +407,53 @@
 
 
 
-.textoTrue {
+.textoTrue{
     color: green !important;
 }
-
-.textoFalse {
+.textoFalse{
     color: red !important;
 }
-
-.campoTrue {
+.campoTrue{
     border-color: green !important;
     color: green !important;
 }
-
-.campoWriting {
+.campoWriting{
     border: 2px solid #FFD900 !important;
 }
-
-.campoFalse {
+.campoFalse{
     border-color: red !important;
     color: red !important;
 }
 
 
 
-#validaNome,
-#validaCelular,
-#validaEmail,
-#validaCodigo {
+#validaNome, #validaCelular, #validaEmail, #validaCodigo{
     display: none;
 }
-
-#validacaoCpf,
-#validacaoNome,
-#validacaoCelular,
-#validacaoEmail,
-#validacaoCodigo {
+#validacaoCpf,#validacaoNome,#validacaoCelular,#validacaoEmail, #validacaoCodigo{
     font-size: 12px;
     font-family: 'Radian';
 }
 
 
 
-#textoInformacao {
+#textoInformacao{
     font-family: 'Radian';
 }
-
-#textoGuiaCpf {
+#textoGuiaCpf{
     margin-left: -20px;
     margin-bottom: -25px;
     font-family: 'Radian';
 }
-
-#textoGuiaNome,
-#textoGuiaCelular,
-#textoGuiaEmail,
-#textoGuiaFim {
+#textoGuiaNome, #textoGuiaCelular, #textoGuiaEmail, #textoGuiaFim{
     display: none;
     margin-left: -20px;
     margin-bottom: -25px;
     font-family: 'Radian';
 }
-
-#textoGuiaFim {
+#textoGuiaFim{
     margin-top: 30px;
 }
-
 /* CADASTRO */
 
 
@@ -514,17 +469,15 @@
     height: 40px;
     overflow: scroll;
 }
-
-.autocomplete-content li {
+.autocomplete-content li{
     font-size: 12px;
     font-weight: normal;
     padding: 10px 0 10px 0;
 }
-
-.aux {
-    display: none;
+  
+.aux{
+display: none;
 }
-
 /* AUTO COMPLETE EMAIL */
 
 
@@ -567,6 +520,7 @@ body {
     border-radius: 20px;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+
 }
 
 
@@ -592,6 +546,7 @@ body {
     border-radius: 20px;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+
 }
 
 
@@ -609,6 +564,7 @@ body {
     text-decoration: none;
 
     color: #fff
+
 }
 
 
@@ -620,6 +576,7 @@ body {
     max-height: 100%;
 
     display: block
+
 }
 
 
@@ -631,6 +588,7 @@ body {
     align-items: center;
 
     padding: 10px
+
 }
 
 
@@ -656,6 +614,7 @@ body {
     display: block;
 
     margin: 0 auto
+
 }
 
 
@@ -665,6 +624,7 @@ body {
     font-weight: 700;
 
     font-size: 17px
+
 }
 
 
@@ -682,6 +642,7 @@ body {
     font-size: 21px;
 
     color: #fff
+
 }
 
 
@@ -697,6 +658,7 @@ body {
     font-weight: 700;
 
     font-size: 21px
+
 }
 
 
@@ -710,6 +672,7 @@ body {
     justify-content: center;
 
     align-items: center
+
 }
 
 
@@ -733,6 +696,7 @@ body {
     cursor: pointer;
 
     transition: transform .2s, background-color .2s
+
 }
 
 
@@ -744,6 +708,7 @@ body {
     height: 100%;
 
     object-fit: cover
+
 }
 
 
@@ -753,6 +718,7 @@ body {
     background-color: #007bff;
 
     transform: scale(1.2)
+
 }
 
 
@@ -770,6 +736,7 @@ body {
     display: block;
 
     margin: 0 auto
+
 }
 
 
@@ -791,6 +758,7 @@ body {
     display: block;
 
     margin: 0 auto
+
 }
 
 
@@ -822,6 +790,7 @@ body {
     padding-right: 15px;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, .5)
+
 }
 
 
@@ -849,6 +818,7 @@ body {
     padding-right: 15px;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, .5)
+
 }
 
 
@@ -856,6 +826,7 @@ body {
 .wbc {
 
     text-align: center
+
 }
 
 
@@ -875,6 +846,7 @@ body {
     font-weight: 700;
 
     border-radius: 12px
+
 }
 
 
@@ -898,6 +870,7 @@ body {
     width: 100%;
 
     margin-top: 10px
+
 }
 
 
@@ -925,6 +898,7 @@ body {
     display: none;
 
     z-index: 10000
+
 }
 
 
@@ -940,6 +914,7 @@ body {
     display: block;
 
     text-align: center
+
 }
 
 
@@ -965,6 +940,7 @@ body {
     display: block;
 
     margin: 0 auto
+
 }
 
 
@@ -982,20 +958,20 @@ body {
     display: block;
 
     margin: 0 auto
+
 }
 
 
 
 .row label {
     cursor: pointer;
-}
-
-.row label input[type="radio"],
-.row label input[type="checkbox"] {
+  }
+  
+  .row label input[type="radio"], .row label input[type="checkbox"] {
     display: none;
-}
-
-.row label .icon-box {
+  }
+  
+  .row label .icon-box {
     position: relative;
     display: flex;
     width: 110px;
@@ -1011,28 +987,27 @@ body {
     user-select: none;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-}
+  }
 
-.row label .icon-box img {
+  .row label .icon-box img {
     width: 30px;
-}
-
-.row label input[type="radio"]:checked~.icon-box,
-.row label input[type="checkbox"]:checked~.icon-box {
+  }
+  
+  .row label input[type="radio"]:checked ~ .icon-box,  .row label input[type="checkbox"]:checked ~ .icon-box {
     background: linear-gradient(138deg, #FED802, #FED802);
     color: #000000;
     -webkit-animation: bounceIn 3.5s ease;
-}
-
-.row label .icon-box span {
+  }
+  
+  .row label .icon-box span {
     margin: 5px;
     font-size: 10px;
     text-align: center;
     display: contents;
     font-family: 'RecoletaBold';
-}
-
-.container .btn {
+  }
+  
+  .container .btn {
     width: 130px;
     height: 40px;
     position: absolute;
@@ -1041,4 +1016,4 @@ body {
     border: 0;
     outline: none;
     transition: 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
-}
+  }
